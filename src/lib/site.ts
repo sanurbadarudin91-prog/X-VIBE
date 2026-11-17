@@ -54,7 +54,9 @@ export type Project = {
   category: string;
   description: string;
   stack: string[];
-  /** Screenshot proyek, mis. "/assets/x-vibe-shop-1.png". */
+  /** Ikon fallback bila gambar gagal dimuat. */
+  icon?: "shopping" | "coffee";
+  /** Screenshot proyek, mis. "/assets/x-vibe-shop.png". */
   image?: string;
   demoUrl?: string;
   repoUrl?: string;
@@ -68,8 +70,19 @@ export const projects: Project[] = [
     description:
       "Toko online modern dengan sistem integrasi pembayaran, autentikasi pengguna, katalog varian produk (warna & ukuran), dan bisa diinstal langsung ke HP.",
     stack: ["Node.js", "Express", "Next.js", "PWA", "Midtrans"],
-    image: "/assets/x-vibe-shop-1.png",
+    image: "/assets/x-vibe-shop.png",
     demoUrl: "https://x-vibe-shop.vercel.app",
+    featured: true,
+  },
+  {
+    title: "Titik Jenuh Coffee Shop",
+    category: "Company Profile & Landing Page",
+    description:
+      "Website coffee shop dengan katalog menu digital lengkap harga, galeri suasana, jam buka, lokasi lewat peta, dan tombol reservasi langsung ke WhatsApp.",
+    stack: ["HTML", "CSS", "JavaScript", "Responsive", "SEO"],
+    icon: "coffee",
+    image: "/assets/titik-jenuh.png",
+    demoUrl: "https://titik-jenuh.vercel.app",
     featured: true,
   },
 ];

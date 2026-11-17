@@ -1,4 +1,4 @@
-import { ArrowUpRight, ShoppingBag, Github } from "lucide-react";
+import { ArrowUpRight, Coffee, ShoppingBag, Github } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ProjectShot } from "@/components/ui/project-shot";
@@ -48,7 +48,11 @@ function ProjectCard({ project }: { project: Project }) {
                 fallback={
                   <div className="flex h-full flex-col items-center justify-center gap-3 px-6 text-center">
                     <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-primary to-accent text-primary-foreground">
-                      <ShoppingBag className="h-7 w-7" />
+                      {project.icon === "coffee" ? (
+                        <Coffee className="h-7 w-7" />
+                      ) : (
+                        <ShoppingBag className="h-7 w-7" />
+                      )}
                     </span>
                     <span className="text-sm font-semibold tracking-wide">
                       {project.title}

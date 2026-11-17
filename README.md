@@ -89,7 +89,8 @@ Cukup taruh berkasnya di `public/assets/` dengan nama sesuai field `image`
 pada `src/lib/site.ts`:
 
 ```
-public/assets/x-vibe-shop-1.png  # screenshot X-VIBE-SHOP
+public/assets/x-vibe-shop.png   # screenshot X-VIBE-SHOP
+public/assets/titik-jenuh.png   # screenshot Titik Jenuh Coffee Shop
 ```
 
 Kalau berkas belum ada, kartu otomatis menampilkan mockup CSS sebagai
