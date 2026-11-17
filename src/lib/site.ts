@@ -54,7 +54,7 @@ export type Project = {
   category: string;
   description: string;
   stack: string[];
-  /** Screenshot proyek, mis. "/assets/x-vibe-shop.png". */
+  /** Screenshot proyek, mis. "/assets/x-vibe-shop-1.png". */
   image?: string;
   demoUrl?: string;
   repoUrl?: string;
@@ -68,7 +68,7 @@ export const projects: Project[] = [
     description:
       "Toko online modern dengan sistem integrasi pembayaran, autentikasi pengguna, katalog varian produk (warna & ukuran), dan bisa diinstal langsung ke HP.",
     stack: ["Node.js", "Express", "Next.js", "PWA", "Midtrans"],
-    image: "/assets/x-vibe-shop.png",
+    image: "/assets/x-vibe-shop-1.png",
     demoUrl: "https://x-vibe-shop.vercel.app",
     featured: true,
   },

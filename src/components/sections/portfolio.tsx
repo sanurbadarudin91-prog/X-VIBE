@@ -41,7 +41,7 @@ function ProjectCard({ project }: { project: Project }) {
               <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
               <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
             </div>
-            <div className="relative aspect-[16/10]">
+            <div className="relative aspect-video">
               <ProjectShot
                 src={project.image}
                 alt={`Tampilan ${project.title} — ${project.category}`}

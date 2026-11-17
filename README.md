@@ -89,13 +89,13 @@ Cukup taruh berkasnya di `public/assets/` dengan nama sesuai field `image`
 pada `src/lib/site.ts`:
 
 ```
-public/assets/x-vibe-shop.png   # screenshot X-VIBE-SHOP
+public/assets/x-vibe-shop-1.png  # screenshot X-VIBE-SHOP
 ```
 
 Kalau berkas belum ada, kartu otomatis menampilkan mockup CSS sebagai
 fallback — jadi tidak pernah tampak rusak. Gambar ditampilkan dengan
-`object-cover` pada rasio 16:10 (dipotong rapi, tidak gepeng), jadi
-screenshot lanskap (mis. 1920×1080) paling pas.
+`object-cover` pada rasio 16:9 (dipotong rapi, tidak gepeng), jadi
+screenshot lanskap 16:9 (mis. 1920×1080) paling pas.
 
 **Ganti screenshot:** timpa berkas di `public/assets/`, lalu commit & push.
 
