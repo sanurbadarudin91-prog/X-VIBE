@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark theme pekat ala tech: #0a0a0a dengan aksen cyan/biru elektrik. */
+    --background: 0 0% 4%;
+    --foreground: 210 40% 98%;
+    --card: 222 30% 8%;
+    --card-foreground: 210 40% 98%;
+    --primary: 187 92% 55%;
+    --primary-foreground: 222 47% 6%;
+    --secondary: 217 33% 14%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 14%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 199 89% 48%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 187 92% 55%;
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-6;
+  }
+
+  .section {
+    @apply py-20 sm:py-24;
+  }
+
+  /* Kartu kaca gelap dengan border tipis neon. */
+  .glass {
+    @apply border border-border/80 bg-card/60 backdrop-blur;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-primary;
+  }
+
+  /* Grid latar futuristik: garis tipis + sorot radial. */
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.35) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.35) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 40%, transparent 100%);
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  .glow {
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.35),
+      0 0 30px -6px hsl(var(--primary) / 0.55);
+  }
+
+  .glow-soft {
+    box-shadow: 0 0 40px -12px hsl(var(--primary) / 0.45);
+  }
+}

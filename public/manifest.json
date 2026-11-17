@@ -1,0 +1,24 @@
+{
+  "name": "X-VIBE — Jasa Pembuatan Website Modern",
+  "short_name": "X-VIBE",
+  "description": "Jasa pembuatan website modern: landing page, company profile, e-commerce, dan web app PWA yang cepat dan responsif.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "categories": ["business", "developer", "portfolio"],
+  "lang": "id",
+  "dir": "ltr",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Portfolio", "url": "/#portfolio" },
+    { "name": "Layanan", "url": "/#services" },
+    { "name": "Kontak", "url": "/#contact" }
+  ]
+}
