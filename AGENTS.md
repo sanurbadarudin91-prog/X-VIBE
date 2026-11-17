@@ -10,7 +10,7 @@ npm run dev        # dev server (http://localhost:3000)
 npm run build      # build produksi
 npm run lint       # ESLint (next lint)
 npm run typecheck  # tsc --noEmit
-node scripts/generate-assets.mjs  # regenerasi logo/ikon brand
+npm run assets     # regenerasi logo/ikon brand dari brand-src/
 ```
 
 ## Apa ini
@@ -27,7 +27,9 @@ Website portofolio single-page untuk jasa pembuatan web **X-VIBE**
 - `src/components/layout/` — navbar, footer, logo, splash, pwa-register.
 - `src/components/ui/` — primitif (button, card, badge, reveal).
 - `src/lib/site.ts` — **sumber tunggal konten** (teks, layanan, portofolio, tautan).
-- `public/` — `assets/` (logo.png, ikon.png), `manifest.json`, `sw.js`.
+- `brand-src/` — berkas desain sumber brand (`logo.png`, `ikon.png`).
+- `scripts/prepare-assets.mjs` — trim + resize aset brand ke `public/assets/`.
+- `public/` — `assets/` (logo.png, ikon.png, ikon-512.png), `manifest.json`, `sw.js`.
 
 ## Konvensi penting
 
@@ -36,6 +38,8 @@ Website portofolio single-page untuk jasa pembuatan web **X-VIBE**
   (`--background`, `--primary`, dst.) dan dipetakan di `tailwind.config.ts`.
   Gunakan kelas semantik (`bg-background`, `text-primary`, `border-border`),
   bukan nilai warna mentah.
+- Tema **terang** mengikuti palet logo: navy `#0e3155` (primary), oranye
+  `#c2410c` (accent, versi gelap agar kontras WCAG AA), biru `#178ad2` (ring).
 - **Jangan manipulasi DOM React secara manual** (`element.remove()` pada node
   yang dirender React). Kelola visibilitas lewat state React — splash screen
   sudah menerapkan pola ini.
@@ -53,9 +57,11 @@ Website portofolio single-page untuk jasa pembuatan web **X-VIBE**
 - `src/components/layout/pwa-register.tsx` mendaftarkan SW setelah halaman siap.
 - `next.config.ts` mengirim header `Cache-Control: no-cache` untuk `/sw.js` agar
   update service worker tidak tertahan cache.
-- Ikon dibuat via `scripts/generate-assets.mjs` (sharp) — tidak ada file desain.
-  Logo web = `public/assets/logo.png`; ikon web/PWA = `public/assets/ikon.png`.
-  Ganti brand cukup dengan menimpa kedua berkas PNG tersebut.
+- Aset brand dibuat via `scripts/prepare-assets.mjs` (sharp) dari berkas sumber
+  di `brand-src/`. `logo.png` (lockup, wordmark + tagline) untuk footer/splash;
+  `ikon.png` (wordmark) untuk navbar; `ikon-512.png` (kanvas persegi) untuk
+  favicon/PWA. Semua mempertahankan rasio asli.
+  Ganti brand: timpa berkas di `brand-src/`, lalu jalankan `npm run assets`.
 
 ## Deploy
 

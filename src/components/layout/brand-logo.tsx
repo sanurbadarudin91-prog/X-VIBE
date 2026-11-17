@@ -2,50 +2,56 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 /**
- * Logo mark X-VIBE — memakai berkas gambar di `public/assets/logo.png`.
- * Dipakai di header, footer, splash, dan halaman offline.
+ * Aset brand di `public/assets/` (dihasilkan oleh `npm run assets`).
+ *
+ * - `ikon.png` — wordmark "XVIBE" horizontal (rasio ~1.4). Cocok untuk navbar.
+ * - `logo.png` — lockup lengkap: wordmark + tagline (rasio ~1). Cocok untuk
+ *   footer, splash, dan halaman offline yang punya ruang vertikal.
+ * - `ikon-512.png` — wordmark di kanvas persegi 512×512 untuk favicon/PWA.
+ *
+ * Semua sudah dipangkas dan rasionya dipertahankan, jadi lebar selalu
+ * dihitung dari tinggi agar gambar tidak gepeng.
  */
+const IKON = { src: "/assets/ikon.png", width: 662, height: 470 };
+const LOGO = { src: "/assets/logo.png", width: 668, height: 662 };
+
+/** Wordmark horizontal X-VIBE — dipakai di navbar. */
 export function BrandMark({
   className,
-  size = 34,
+  height = 32,
 }: {
   className?: string;
-  size?: number;
+  height?: number;
 }) {
+  const width = Math.round((height * IKON.width) / IKON.height);
   return (
     <Image
-      src="/assets/logo.png"
-      alt="Logo X-VIBE"
-      width={size}
-      height={size}
-      className={cn("shrink-0", className)}
+      src={IKON.src}
+      alt="X-VIBE"
+      width={width}
+      height={height}
+      priority
+      className={cn("w-auto shrink-0", className)}
     />
   );
 }
 
-/** Logo lengkap: mark + wordmark "X-VIBE" (opsional tagline). */
+/** Lockup lengkap (wordmark + tagline) — dipakai di footer, splash, offline. */
 export function BrandLogo({
   className,
-  size = 34,
-  showTagline = false,
+  height = 72,
 }: {
   className?: string;
-  size?: number;
-  showTagline?: boolean;
+  height?: number;
 }) {
+  const width = Math.round((height * LOGO.width) / LOGO.height);
   return (
-    <span className={cn("flex items-center gap-2.5", className)}>
-      <BrandMark size={size} />
-      <span className="flex flex-col leading-none">
-        <span className="text-lg font-bold tracking-tight">
-          X<span className="text-primary">-</span>VIBE
-        </span>
-        {showTagline && (
-          <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-            Web Development Studio
-          </span>
-        )}
-      </span>
-    </span>
+    <Image
+      src={LOGO.src}
+      alt="X-VIBE — Digital Solutions"
+      width={width}
+      height={height}
+      className={cn("w-auto shrink-0", className)}
+    />
   );
 }

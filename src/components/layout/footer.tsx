@@ -13,7 +13,7 @@ export function Footer() {
     <footer className="border-t border-border/70 bg-card/40">
       <div className="container-x grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2">
-          <BrandLogo showTagline />
+          <BrandLogo height={80} />
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
             {site.description}
           </p>

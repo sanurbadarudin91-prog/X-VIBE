@@ -4,10 +4,10 @@ import { cn } from "@/lib/utils";
 type Tone = "default" | "success" | "warning" | "info" | "muted";
 
 const tones: Record<Tone, string> = {
-  default: "bg-primary/15 text-primary border-primary/30",
-  success: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30",
-  warning: "bg-amber-500/15 text-amber-400 border-amber-500/30",
-  info: "bg-sky-500/15 text-sky-400 border-sky-500/30",
+  default: "bg-primary/10 text-primary border-primary/25",
+  success: "bg-emerald-500/10 text-emerald-700 border-emerald-600/25",
+  warning: "bg-amber-500/10 text-amber-700 border-amber-600/25",
+  info: "bg-sky-500/10 text-sky-700 border-sky-600/25",
   muted: "bg-muted text-muted-foreground border-border",
 };
 

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
-import { BrandLogo } from "@/components/layout/brand-logo";
+import { BrandMark } from "@/components/layout/brand-logo";
 import { Button } from "@/components/ui/button";
 import { navLinks, waHero } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -29,7 +29,7 @@ export function Navbar() {
     >
       <nav className="container-x flex h-16 items-center justify-between">
         <a href="#home" aria-label="X-VIBE — ke atas" className="rounded-md">
-          <BrandLogo />
+          <BrandMark height={34} />
         </a>
 
         {/* Navigasi desktop */}

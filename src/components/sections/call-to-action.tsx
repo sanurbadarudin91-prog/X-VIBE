@@ -10,7 +10,7 @@ export function CallToAction() {
         <Reveal>
           <div className="glow relative overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/15 via-card to-accent/15 p-8 text-center sm:p-14">
             <div
-              className="pointer-events-none absolute -top-24 left-1/2 h-64 w-[36rem] -translate-x-1/2 rounded-full bg-primary/25 blur-[100px]"
+              className="pointer-events-none absolute -top-24 left-1/2 h-64 w-[36rem] -translate-x-1/2 rounded-full bg-primary/10 blur-[100px]"
               aria-hidden
             />
             <div className="relative mx-auto max-w-2xl">

@@ -38,8 +38,8 @@ export const metadata: Metadata = {
     statusBarStyle: "black-translucent",
   },
   icons: {
-    icon: [{ url: "/assets/ikon.png", type: "image/png" }],
-    apple: [{ url: "/assets/ikon.png" }],
+    icon: [{ url: "/assets/ikon-512.png", type: "image/png" }],
+    apple: [{ url: "/assets/ikon-512.png" }],
   },
   openGraph: {
     type: "website",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",

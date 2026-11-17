@@ -6,7 +6,8 @@ Tailwind CSS, serta dilengkapi **PWA** (bisa di-install ke HP).
 
 ## ✨ Fitur
 
-- **Dark futuristic tech-look** — background pekat, aksen cyan/biru elektrik.
+- **Clean futuristic tech-look** — tema terang bersih dengan aksen navy + oranye
+  brand, menyatu dengan logo.
 - **Responsive mobile-first** — nyaman dari layar HP sampai desktop.
 - **Smooth scrolling** antar section + animasi reveal saat discroll.
 - **Section lengkap:** Hero, Featured Portfolio (X-VIBE-SHOP), Services,
@@ -54,27 +55,46 @@ Semua teks, daftar layanan, portofolio, dan tautan terpusat di
 [`src/lib/site.ts`](src/lib/site.ts). Ubah di satu tempat, seluruh halaman ikut
 berubah.
 
-## 🖼️ Aset Brand (`public/assets/`)
+## 🖼️ Aset Brand
 
-Logo & ikon web disimpan sebagai berkas gambar, jadi bisa diganti kapan saja
-tanpa menyentuh kode:
+Aset brand dihasilkan dari berkas desain di `brand-src/`:
 
-| Berkas | Dipakai untuk |
-| --- | --- |
-| `public/assets/logo.png` | Logo web di navbar, footer, splash screen, halaman offline |
-| `public/assets/ikon.png` | Ikon web: favicon, apple-touch-icon, ikon PWA (manifest) |
+| Sumber | Hasil | Dipakai untuk |
+| --- | --- | --- |
+| `brand-src/logo.png` | `public/assets/logo.png` | Lockup lengkap (wordmark + tagline): footer, splash, halaman offline |
+| `brand-src/ikon.png` | `public/assets/ikon.png` | Wordmark horizontal: logo di navbar |
+| `brand-src/ikon.png` | `public/assets/ikon-512.png` | Wordmark di kanvas persegi 512×512: favicon, apple-touch-icon, ikon PWA |
 
-Keduanya direferensikan di `src/components/layout/brand-logo.tsx`,
+Skrip `npm run assets` memangkas (trim) margin latar, **mempertahankan rasio
+asli** (tidak gepeng), lalu mengekspor PNG teroptimasi (palet):
+
+- `logo.png` — lockup, lebar 600 px (rasio asli ~1.0).
+- `ikon.png` — wordmark, lebar 600 px (rasio asli ~1.4).
+- `ikon-512.png` — mark dipusatkan pada kanvas persegi (konten ±80%) agar aman
+  sebagai favicon dan ikon PWA `maskable`.
+
+Hasil direferensikan di `src/components/layout/brand-logo.tsx`,
 `src/app/layout.tsx`, dan `public/manifest.json`.
 
-Untuk mengganti logo/ikon: cukup timpa berkasnya (mis. desain sendiri, ukuran
-512×512 PNG), lalu commit. Tidak perlu ubah kode.
-
-Regenerasi dari generator bawaan (opsional, butuh `sharp`):
+**Mengganti logo/ikon:** timpa berkas di `brand-src/`, lalu jalankan:
 
 ```bash
-npm run assets   # atau: node scripts/generate-assets.mjs
+npm run assets
 ```
+
+## 🎨 Tema
+
+Warna didefinisikan sebagai design token HSL di `src/app/globals.css` dan
+mengikuti palet logo:
+
+| Token | Nilai | Warna |
+| --- | --- | --- |
+| `--background` | `#ffffff` | Latar terang, menyatu dengan logo |
+| `--primary` | `#0e3155` | Navy brand (teks utama, tombol) |
+| `--accent` | `#c2410c` | Oranye brand (versi gelap agar kontras WCAG AA) |
+| `--ring` | `#178ad2` | Biru brand (fokus/outline) |
+
+Ubah token di `src/app/globals.css` untuk menyesuaikan tema.
 
 ## 📁 Struktur
 
@@ -92,8 +112,11 @@ src/
   lib/
     site.ts           # sumber konten tunggal
     utils.ts          # helper cn()
+brand-src/            # berkas desain sumber (logo.png, ikon.png)
+scripts/
+  prepare-assets.mjs  # trim + resize aset brand -> public/assets
 public/
-  assets/           # logo.png + ikon.png (aset brand)
+  assets/           # logo.png, ikon.png, ikon-512.png (hasil generate)
   manifest.json, sw.js
 ```
 

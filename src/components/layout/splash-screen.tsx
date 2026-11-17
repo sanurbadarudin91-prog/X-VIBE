@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { BrandMark } from "@/components/layout/brand-logo";
+import { BrandLogo } from "@/components/layout/brand-logo";
 import { cn } from "@/lib/utils";
 
 const FADE_MS = 400;
@@ -37,7 +37,7 @@ export function SplashScreen() {
       )}
     >
       <div className="flex flex-col items-center gap-3">
-        <BrandMark size={64} className="animate-pulse" />
+        <BrandLogo height={96} className="animate-pulse" />
         <span className="text-sm font-semibold tracking-[0.3em] text-muted-foreground">
           X-VIBE
         </span>

@@ -4,24 +4,29 @@
 
 @layer base {
   :root {
-    /* Dark theme pekat ala tech: #0a0a0a dengan aksen cyan/biru elektrik. */
-    --background: 0 0% 4%;
-    --foreground: 210 40% 98%;
-    --card: 222 30% 8%;
-    --card-foreground: 210 40% 98%;
-    --primary: 187 92% 55%;
-    --primary-foreground: 222 47% 6%;
-    --secondary: 217 33% 14%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217 33% 14%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 199 89% 48%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217 33% 18%;
-    --input: 217 33% 18%;
-    --ring: 187 92% 55%;
+    /*
+     * Tema terang mengikuti aset brand: latar putih agar logo/ikon
+     * (berlatar putih) menyatu. Palet diambil dari artwork logo —
+     * navy #0e3155 (utama), oranye #c2410c (aksen), biru #178ad2 (ring).
+     */
+    --background: 0 0% 100%;
+    --foreground: 211 65% 15%;
+    --card: 210 40% 98%;
+    --card-foreground: 211 65% 15%;
+    --primary: 210 72% 19%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 210 72% 19%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 19% 35%;
+    /* Oranye brand digelapkan ke #c2410c agar teks putih tetap kontras (WCAG AA). */
+    --accent: 17 88% 40%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 203 80% 46%;
     --radius: 0.75rem;
   }
 
@@ -62,20 +67,20 @@
     @apply py-20 sm:py-24;
   }
 
-  /* Kartu kaca gelap dengan border tipis neon. */
+  /* Kartu putih lembut dengan border tipis + bayangan halus (tema terang). */
   .glass {
-    @apply border border-border/80 bg-card/60 backdrop-blur;
+    @apply border border-border bg-card/80 shadow-sm backdrop-blur;
   }
 
   .eyebrow {
-    @apply text-xs font-semibold uppercase tracking-[0.2em] text-primary;
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-accent;
   }
 
   /* Grid latar futuristik: garis tipis + sorot radial. */
   .grid-bg {
     background-image:
-      linear-gradient(to right, hsl(var(--border) / 0.35) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--border) / 0.35) 1px, transparent 1px);
+      linear-gradient(to right, hsl(var(--border) / 0.8) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.8) 1px, transparent 1px);
     background-size: 56px 56px;
     mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 40%, transparent 100%);
     -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 40%, transparent 100%);
@@ -88,11 +93,11 @@
 
 @layer utilities {
   .glow {
-    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.35),
-      0 0 30px -6px hsl(var(--primary) / 0.55);
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.12),
+      0 12px 40px -12px hsl(var(--primary) / 0.28);
   }
 
   .glow-soft {
-    box-shadow: 0 0 40px -12px hsl(var(--primary) / 0.45);
+    box-shadow: 0 18px 50px -18px hsl(var(--primary) / 0.35);
   }
 }

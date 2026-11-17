@@ -9,7 +9,7 @@ export default function OfflinePage() {
   return (
     <main className="grid min-h-dvh place-items-center px-6 text-center">
       <div className="flex flex-col items-center gap-5">
-        <BrandLogo />
+        <BrandLogo height={88} />
         <span className="grid h-16 w-16 place-items-center rounded-2xl border border-border bg-card text-primary">
           <WifiOff className="h-7 w-7" />
         </span>

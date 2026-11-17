@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "assets": "node scripts/generate-assets.mjs"
+    "assets": "node scripts/prepare-assets.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
