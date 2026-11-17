@@ -93,3 +93,9 @@ otomatis sebagai Next.js — cukup hubungkan repo ke Vercel.
 ---
 
 © 2026 SNRB Nova Development. All rights reserved.
+
+## 🔗 Live
+
+**https://x-vibe-portfolio.vercel.app**
+
+Deploy otomatis via Vercel setiap push ke `main`.
