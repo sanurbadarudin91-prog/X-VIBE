@@ -1,6 +1,6 @@
 /* Service worker X-VIBE: network-first dengan fallback cache offline. */
-const CACHE = "xv-cache-v1";
-const PRECACHE = ["/", "/offline"];
+const CACHE = "xv-cache-v2";
+const PRECACHE = ["/", "/offline", "/assets/logo.png", "/assets/ikon.png"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(

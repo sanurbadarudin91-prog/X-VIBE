@@ -10,7 +10,7 @@ npm run dev        # dev server (http://localhost:3000)
 npm run build      # build produksi
 npm run lint       # ESLint (next lint)
 npm run typecheck  # tsc --noEmit
-node scripts/generate-icons.mjs  # regenerasi ikon PWA
+node scripts/generate-assets.mjs  # regenerasi logo/ikon brand
 ```
 
 ## Apa ini
@@ -27,7 +27,7 @@ Website portofolio single-page untuk jasa pembuatan web **X-VIBE**
 - `src/components/layout/` — navbar, footer, logo, splash, pwa-register.
 - `src/components/ui/` — primitif (button, card, badge, reveal).
 - `src/lib/site.ts` — **sumber tunggal konten** (teks, layanan, portofolio, tautan).
-- `public/` — `manifest.json`, `sw.js`, ikon.
+- `public/` — `assets/` (logo.png, ikon.png), `manifest.json`, `sw.js`.
 
 ## Konvensi penting
 
@@ -53,7 +53,9 @@ Website portofolio single-page untuk jasa pembuatan web **X-VIBE**
 - `src/components/layout/pwa-register.tsx` mendaftarkan SW setelah halaman siap.
 - `next.config.ts` mengirim header `Cache-Control: no-cache` untuk `/sw.js` agar
   update service worker tidak tertahan cache.
-- Ikon dibuat via `scripts/generate-icons.mjs` (sharp) — tidak ada file desain.
+- Ikon dibuat via `scripts/generate-assets.mjs` (sharp) — tidak ada file desain.
+  Logo web = `public/assets/logo.png`; ikon web/PWA = `public/assets/ikon.png`.
+  Ganti brand cukup dengan menimpa kedua berkas PNG tersebut.
 
 ## Deploy
 

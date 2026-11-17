@@ -1,6 +1,10 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-/** Monogram "XV" bergradien — dipakai di header, footer, splash, dan ikon PWA. */
+/**
+ * Logo mark X-VIBE — memakai berkas gambar di `public/assets/logo.png`.
+ * Dipakai di header, footer, splash, dan halaman offline.
+ */
 export function BrandMark({
   className,
   size = 34,
@@ -9,51 +13,17 @@ export function BrandMark({
   size?: number;
 }) {
   return (
-    <svg
-      viewBox="0 0 48 48"
+    <Image
+      src="/assets/logo.png"
+      alt="Logo X-VIBE"
       width={size}
       height={size}
-      role="img"
-      aria-label="Logo X-VIBE"
       className={cn("shrink-0", className)}
-    >
-      <defs>
-        <linearGradient id="xv-grad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="hsl(var(--primary))" />
-          <stop offset="100%" stopColor="hsl(var(--accent))" />
-        </linearGradient>
-      </defs>
-      <rect x="1" y="1" width="46" height="46" rx="13" fill="url(#xv-grad)" />
-      {/* Ikon kode </> di kiri + huruf V di kanan. */}
-      <path
-        d="M13 18 L9.5 24 L13 30"
-        fill="none"
-        stroke="white"
-        strokeWidth="2.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M16 18 L19.5 24 L16 30"
-        fill="none"
-        stroke="white"
-        strokeWidth="2.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M26 17 L33 31 M40 17 L33 31"
-        fill="none"
-        stroke="white"
-        strokeWidth="3.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    />
   );
 }
 
-/** Logo lengkap: monogram + wordmark "X-VIBE" (opsional tagline). */
+/** Logo lengkap: mark + wordmark "X-VIBE" (opsional tagline). */
 export function BrandLogo({
   className,
   size = 34,

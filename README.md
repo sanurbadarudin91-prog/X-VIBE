@@ -54,16 +54,27 @@ Semua teks, daftar layanan, portofolio, dan tautan terpusat di
 [`src/lib/site.ts`](src/lib/site.ts). Ubah di satu tempat, seluruh halaman ikut
 berubah.
 
-## 🖼️ Regenerasi Ikon PWA
+## 🖼️ Aset Brand (`public/assets/`)
 
-Ikon dibuat dari SVG monogram (tanpa file desain):
+Logo & ikon web disimpan sebagai berkas gambar, jadi bisa diganti kapan saja
+tanpa menyentuh kode:
+
+| Berkas | Dipakai untuk |
+| --- | --- |
+| `public/assets/logo.png` | Logo web di navbar, footer, splash screen, halaman offline |
+| `public/assets/ikon.png` | Ikon web: favicon, apple-touch-icon, ikon PWA (manifest) |
+
+Keduanya direferensikan di `src/components/layout/brand-logo.tsx`,
+`src/app/layout.tsx`, dan `public/manifest.json`.
+
+Untuk mengganti logo/ikon: cukup timpa berkasnya (mis. desain sendiri, ukuran
+512×512 PNG), lalu commit. Tidak perlu ubah kode.
+
+Regenerasi dari generator bawaan (opsional, butuh `sharp`):
 
 ```bash
-node scripts/generate-icons.mjs
+npm run assets   # atau: node scripts/generate-assets.mjs
 ```
-
-Menghasilkan `public/icon-192.png`, `public/icon-512.png`,
-`public/apple-touch-icon.png`, dan `public/favicon.png`.
 
 ## 📁 Struktur
 
@@ -82,7 +93,8 @@ src/
     site.ts           # sumber konten tunggal
     utils.ts          # helper cn()
 public/
-  manifest.json, sw.js, icon-*.png, favicon.png
+  assets/           # logo.png + ikon.png (aset brand)
+  manifest.json, sw.js
 ```
 
 ## ☁️ Deploy
