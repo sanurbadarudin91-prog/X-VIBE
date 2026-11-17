@@ -8,7 +8,7 @@
 
 /** Nomor WhatsApp bisnis dalam format internasional tanpa "+" (mis. 62812xxxxxxx). */
 export const whatsappNumber =
-  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "6281234567890";
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "6285882097467";
 
 export const contactEmail =
   process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@x-vibe.dev";
