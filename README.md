@@ -82,6 +82,23 @@ Hasil direferensikan di `src/components/layout/brand-logo.tsx`,
 npm run assets
 ```
 
+## 🖼️ Screenshot Proyek (Portfolio)
+
+Kartu portofolio menampilkan screenshot proyek asli di dalam frame browser.
+Cukup taruh berkasnya di `public/assets/` dengan nama sesuai field `image`
+pada `src/lib/site.ts`:
+
+```
+public/assets/x-vibe-shop.png   # screenshot X-VIBE-SHOP
+```
+
+Kalau berkas belum ada, kartu otomatis menampilkan mockup CSS sebagai
+fallback — jadi tidak pernah tampak rusak. Gambar ditampilkan dengan
+`object-cover` pada rasio 16:10 (dipotong rapi, tidak gepeng), jadi
+screenshot lanskap (mis. 1920×1080) paling pas.
+
+**Ganti screenshot:** timpa berkas di `public/assets/`, lalu commit & push.
+
 ## 🎨 Tema
 
 Warna didefinisikan sebagai design token HSL di `src/app/globals.css` dan

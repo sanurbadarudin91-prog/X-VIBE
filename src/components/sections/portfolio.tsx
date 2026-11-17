@@ -1,6 +1,7 @@
 import { ArrowUpRight, ShoppingBag, Github } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { ProjectShot } from "@/components/ui/project-shot";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { projects, type Project } from "@/lib/site";
@@ -40,24 +41,32 @@ function ProjectCard({ project }: { project: Project }) {
               <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
               <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
             </div>
-            <div className="flex flex-col items-center gap-3 px-6 py-10 text-center">
-              <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-primary to-accent text-primary-foreground">
-                <ShoppingBag className="h-7 w-7" />
-              </span>
-              <span className="text-sm font-semibold tracking-wide">
-                {project.title}
-              </span>
-              <span className="text-xs text-muted-foreground">
-                {project.category}
-              </span>
-              <div className="mt-1 grid w-full grid-cols-3 gap-2">
-                {[0, 1, 2].map((i) => (
-                  <span
-                    key={i}
-                    className="h-14 rounded-lg border border-border/70 bg-card/70"
-                  />
-                ))}
-              </div>
+            <div className="relative aspect-[16/10]">
+              <ProjectShot
+                src={project.image}
+                alt={`Tampilan ${project.title} — ${project.category}`}
+                fallback={
+                  <div className="flex h-full flex-col items-center justify-center gap-3 px-6 text-center">
+                    <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-primary to-accent text-primary-foreground">
+                      <ShoppingBag className="h-7 w-7" />
+                    </span>
+                    <span className="text-sm font-semibold tracking-wide">
+                      {project.title}
+                    </span>
+                    <span className="text-xs text-muted-foreground">
+                      {project.category}
+                    </span>
+                    <div className="mt-1 grid w-full grid-cols-3 gap-2">
+                      {[0, 1, 2].map((i) => (
+                        <span
+                          key={i}
+                          className="h-14 rounded-lg border border-border/70 bg-card/70"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                }
+              />
             </div>
           </div>
         </div>

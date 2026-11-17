@@ -29,7 +29,8 @@ Website portofolio single-page untuk jasa pembuatan web **X-VIBE**
 - `src/lib/site.ts` — **sumber tunggal konten** (teks, layanan, portofolio, tautan).
 - `brand-src/` — berkas desain sumber brand (`logo.png`, `ikon.png`).
 - `scripts/prepare-assets.mjs` — trim + resize aset brand ke `public/assets/`.
-- `public/` — `assets/` (logo.png, ikon.png, ikon-512.png), `manifest.json`, `sw.js`.
+- `public/` — `assets/` (logo.png, ikon.png, ikon-512.png, x-vibe-shop.png),
+  `manifest.json`, `sw.js`.
 
 ## Konvensi penting
 
